@@ -56,6 +56,3 @@ model = LogisticRegression(
 
 
 
-
-
-
