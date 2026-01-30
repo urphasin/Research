@@ -1,8 +1,15 @@
 # ────────────────────────────────────────────────
 # Typical modern workflow (2025–2026 style)
 # ────────────────────────────────────────────────
+import math
+print(math.sqrt(2))
+
 
 import numpy as np
+arr = np.array([1, 4, 9, 16])
+print(np.sqrt(arr))
+
+
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
