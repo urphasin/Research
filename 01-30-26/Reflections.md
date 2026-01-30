@@ -1,0 +1,1 @@
+I woke up worried about financial aid and summer finances.
