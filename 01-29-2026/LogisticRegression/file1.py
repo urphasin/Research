@@ -23,7 +23,7 @@ X = data["data"]
 Y = data["target"]
 
 print(X, end="\n\n")
-print(Y)
+print(Y, end="\n\n")
 
 #######################################################
 print("Classes:", np.bincount(Y))   # ← check balance
@@ -34,5 +34,28 @@ X_train, X_test, Y_train, Y_test = train_test_split(
     X, Y,
     test_size= 0.25,
     random_state= 42,
-    stratify= Y,
+    stratify= Y,                            # important for imbalanced data
 )
+
+# Scale(almost always needed for logistic regression)
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+
+# Model ─ most important parameters in 2025+
+model = LogisticRegression(
+    penalty= 'l2',              # 'l1', 'l2', 'elasticnet', None
+    C= 1.0,                     # Inverse of regularization strength (smaller = stronger reg)
+    solver= 'lbfgs',            # 'lbfgs' (default), 'liblinear', 'saga', 'newton-cg'...
+    max_iter= 1000,             
+    random_state= 42, 
+    class_weight= None          # 'balanced' if classes are imbalanced
+
+)
+
+
+
+
+
+
